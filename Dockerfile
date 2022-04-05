@@ -4,7 +4,7 @@ COPY pom.xml .
 RUN mvn dependency:go-offline
 
 COPY src/ /build/src/
-RUN mvn package -Dmaven.test.skip=true
+RUN mvn package 
 COPY target/ /build/target/
 
 FROM openjdk:11

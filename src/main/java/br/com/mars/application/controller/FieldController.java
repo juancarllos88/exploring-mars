@@ -56,7 +56,7 @@ public class FieldController {
 		return responseService.ok(converterService.convert(fields, FieldResponseDto.class));
 	}
 	
-	@ApiOperation(value = "Displays only limited space")
+	@ApiOperation(value = "Show only limited space")
 	@GetMapping("/{fieldId}")
 	public ResponseEntity<FieldResponseDto> findOne(@PathVariable UUID fieldId) {
 		return responseService.ok(converterService.convert(fieldService.findOne(fieldId), FieldResponseDto.class));

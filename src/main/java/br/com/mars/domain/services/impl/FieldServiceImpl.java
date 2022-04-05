@@ -18,11 +18,17 @@ public class FieldServiceImpl extends BaseServiceImpl<Field> implements FieldSer
 		return fieldRepository;
 	}
 
+	/**
+	 * As the value 0 is considered, it is by adding + 1 to the field limit
+	 *
+	 * @param field field to save
+	 * @return Field
+	 */
 	@Override
-	public Field save(Field entity) {
-		entity.setAxisX(entity.getAxisX() + 1);
-		entity.setAxisY(entity.getAxisY()+ 1);
-		return super.save(entity);
+	public Field save(Field field) {
+		field.setAxisX(field.getAxisX() + 1);
+		field.setAxisY(field.getAxisY()+ 1);
+		return super.save(field);
 	}
 
 }

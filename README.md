@@ -41,11 +41,44 @@ A saída deverá contar uma linha para cada sonda, na mesma ordem de entrada, in
 LMLMLMLMM
 3 3 E
 MMRMMRMRRM
+
+Obs: Esses dados já foram incluídos como carga inicial do banco de dados.
 ```
 
 #### Saída esperada:
 ```
 1 3 N
 5 1 E
+```
+
+## Executando API
+
+- Iniciando
+```
+docker-compose up -d
+```
+
+- Caso queria verificar os logs:
+```shell
+docker-compose logs -f exploring-mars 
+```
+
+- Encerrando:
+```shell
+docker-compose down
+```
+
+## Documentação 
+
+- Swagger
+```
+http://localhost:8080/swagger-ui.html
+```
+
+## Repositório 
+
+- DockerHub
+```
+https://hub.docker.com/repository/docker/juancarllos88/exploring-mars
 ```
 

@@ -56,7 +56,7 @@ public class ProbeController {
 		return responseService.create(probeResponseDto);
 	}
 	
-	@ApiOperation(value = "Displays only probe")
+	@ApiOperation(value = "Show only probe")
 	@GetMapping("/{probeId}")
 	public ResponseEntity<ProbeResponseDto> findOne(@PathVariable UUID probeId) {
 		return responseService.ok(converterService.convert(probeService.findOne(probeId), ProbeResponseDto.class));

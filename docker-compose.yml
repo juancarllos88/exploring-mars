@@ -1,0 +1,13 @@
+version: '3'
+services:
+  exploring-mars:
+    container_name: exploring-mars
+    image: juancarllos88/exploring-mars:latest
+    networks: 
+      - exploring-mars
+    ports:
+      - 8080:8080  
+
+networks: 
+  exploring-mars:
+    driver: bridge  
