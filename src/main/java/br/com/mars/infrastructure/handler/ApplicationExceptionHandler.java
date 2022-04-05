@@ -16,9 +16,10 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import br.com.mars.infrastructure.exceptions.EntityModelNotFoundException;
+import br.com.mars.infrastructure.exceptions.InstructionInvalidException;
 import br.com.mars.infrastructure.exceptions.ResourceNotFoundException;
 import br.com.mars.infrastructure.exceptions.SpaceAlreadyOccupiedException;
-import br.com.mars.infrastructure.service.impl.MessageServiceImpl;
+import br.com.mars.infrastructure.services.impl.MessageServiceImpl;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
@@ -47,6 +48,11 @@ public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler 
 	@ExceptionHandler({ SpaceAlreadyOccupiedException.class })
 	public ResponseEntity<Object> handleSpaceAlreadyOccupiedException(RuntimeException ex, WebRequest request) {
 		return handleException(ex, HttpStatus.CONFLICT, request, "space.already.occupied");
+	}
+	
+	@ExceptionHandler({ InstructionInvalidException.class })
+	public ResponseEntity<Object> handleInstructionInvalidException(RuntimeException ex, WebRequest request) {
+		return handleException(ex, HttpStatus.BAD_REQUEST, request, "instruction.invalid");
 	}
 
 	@Override
