@@ -17,6 +17,7 @@ import org.hibernate.annotations.Type;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import br.com.mars.domain.shared.Position;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -53,7 +54,7 @@ public class Field {
 	 * @param YPosition probe y position
 	 * @return boolean
 	 */
-	public boolean isAvailableSpace(int XPosition, int YPosition) {
+	public boolean isAvailableSpace(Position position) {
 
 		boolean XBound = (XPosition >= 0) && (XPosition < this.axisX);
 		boolean YBound = (YPosition >= 0) && (YPosition < this.axisY);

@@ -32,12 +32,12 @@ public class Position {
 	 * @param probe probe under analysis
 	 * @return Position
 	 */
-	public Position changePosition(Probe probe) {
+	public Position changePosition(Direction direction) {
 
 		int newPositionX = this.x;
 		int newPositionY = this.y;
 
-		switch (probe.getDirection()) {
+		switch (direction) {
 		case NORTH:
 			newPositionY += 1;
 			break;
@@ -54,24 +54,24 @@ public class Position {
 			throw new RuntimeException();
 		}
 
-		if (!probe.getField().isAvailableSpace(newPositionX, newPositionY)) {
-			Position newPosition = turnLeft(probe);
-			newPositionX = newPosition.getX();
-			newPositionY = newPosition.getY();
-		}
+		
 
 		return new Position(newPositionX, newPositionY);
 	}
 
-	/**
-	 * if there is no space available, turn left until you find a space
-	 *
-	 * @param probe probe under analysis
-	 * @return Position
-	 */
-	private Position turnLeft(Probe probe) {
-		probe.setDirection(probe.getDirection().turnLeft());
-		return changePosition(probe);
+//	/**
+//	 * if there is no space available, turn left until you find a space
+//	 *
+//	 * @param probe probe under analysis
+//	 * @return Position
+//	 */
+//	private Position turnLeft(Probe probe) {
+//		probe.setDirection(probe.getDirection().turnLeft());
+//		return changePosition(probe);
+//	}
+	
+	 void teste() {
+		
 	}
 
 }

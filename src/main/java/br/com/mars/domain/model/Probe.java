@@ -48,5 +48,23 @@ public class Probe {
 
 	@Enumerated(EnumType.STRING)
 	private Direction direction;
+	
+	
+    public void move() {
+    	setDirection(getDirection().moveForward());
+		Position changePosition = getPosition().changePosition(getDirection());
+		
+		if (!getField().isAvailableSpace(changePosition)) {
+			turnLeft();
+			newPositionX = newPosition.getX();
+			newPositionY = newPosition.getY();
+		}
+		probe.setPosition(changePosition);
+    }
+    
+    private void turnLeft() {
+		setDirection(getDirection().turnLeft());
+		//return changePosition(probe);
+	}
 
 }
