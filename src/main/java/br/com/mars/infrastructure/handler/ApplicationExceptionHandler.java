@@ -19,7 +19,7 @@ import br.com.mars.infrastructure.exceptions.EntityModelNotFoundException;
 import br.com.mars.infrastructure.exceptions.InstructionInvalidException;
 import br.com.mars.infrastructure.exceptions.ResourceNotFoundException;
 import br.com.mars.infrastructure.exceptions.SpaceAlreadyOccupiedException;
-import br.com.mars.infrastructure.services.impl.MessageServiceImpl;
+import br.com.mars.infrastructure.services.MessageService;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
@@ -27,7 +27,7 @@ import lombok.extern.log4j.Log4j2;
 public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler {
 
 	@Autowired
-	protected MessageServiceImpl messageService;
+	protected MessageService messageService;
 
 	@ExceptionHandler({ RuntimeException.class })
 	public ResponseEntity<Object> handleRuntimeException(RuntimeException ex, WebRequest request) {

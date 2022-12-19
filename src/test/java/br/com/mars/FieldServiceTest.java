@@ -48,11 +48,13 @@ public class FieldServiceTest {
 	
 	@Test
 	public void fieldNotFound() throws Exception {
-		try {
+		
+		/*try {
 			fieldService.findOne(UUID.fromString("6309f0d3-5357-4201-b252-77889110fe50"));
 		} catch (RuntimeException e) {
 			Assertions.assertTrue(e.getClass().equals(EntityModelNotFoundException.class));
-		}
+		}*/
+		Assertions.assertThrows(RuntimeException.class, ()-> fieldService.findOne(UUID.fromString("6309f0d3-5357-4201-b252-77889110fe50")));
 	}
 
 	@Test
